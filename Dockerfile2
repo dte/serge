@@ -1,0 +1,5 @@
+# Use the base image
+FROM ghcr.io/nsarrazin/serge:latest
+
+# Create the required directories
+RUN mkdir -p /usr/src/app/weights /data/db/
