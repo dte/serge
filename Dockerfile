@@ -59,4 +59,5 @@ COPY ./api /usr/src/app/api
 RUN pip install ./api
 
 COPY --chmod=0755 scripts/deploy.sh /usr/src/app/deploy.sh
+RUN mkdir -p /usr/src/app/weights /data/db/
 CMD ./deploy.sh
