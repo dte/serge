@@ -75,4 +75,4 @@ jobs:
           PAPERSPACE_API_KEY: ${{ secrets.PAPERSPACE_API_KEY }}
         with:
           projectId: pioiimjvdsx
-          image: ghcr.io/dte/serge:${{ steps.meta.outputs.tags }}
+          image: ghcr.io/dte/serge:latest
