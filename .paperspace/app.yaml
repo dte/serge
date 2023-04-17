@@ -1,0 +1,9 @@
+enabled: true
+image: ghcr.io/dte/serge:latest
+port: 8008
+healthChecks:
+  readiness:
+    path: /
+resources:
+  replicas: 1
+  instanceType: A4000
