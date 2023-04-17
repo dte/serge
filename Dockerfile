@@ -62,5 +62,7 @@ COPY --chmod=0755 scripts/deploy.sh /usr/src/app/deploy.sh
 RUN pip install --no-cache-dir ./api
 
 EXPOSE 8008
-RUN mkdir -p /usr/src/app/weights /data/db/
+RUN mkdir /usr/src/app/weights 
+RUN mkdir -p /data/db/
+
 CMD ./deploy.sh
