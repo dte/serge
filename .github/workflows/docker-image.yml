@@ -72,7 +72,7 @@ jobs:
       - name: Set container SHA
         id: set-container-sha
         run: |
-          echo "::set-output name=CONTAINER_SHA::${{ steps.build-push.outputs.Metadata.containerimage.digest }}"
+          echo "::set-output name=CONTAINER_SHA::${{ steps.build-push.outputs.digest }}"
           echo $CONTAINER_SHA
 
       - uses: paperspace/deploy-action@v1.0
