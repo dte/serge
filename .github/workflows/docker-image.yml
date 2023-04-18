@@ -71,13 +71,16 @@ jobs:
 
       - name: Set container SHA
         id: set-container-sha
-        run: echo "::set-output name=CONTAINER_SHA::${{ steps.build-push.outputs.Metadata.containerimage.digest }}"
+        run: |
+          echo "::set-output name=CONTAINER_SHA::${{ steps.build-push.outputs.Metadata.containerimage.digest }}"
+          echo $CONTAINER_SHA
 
       - uses: paperspace/deploy-action@v1.0
         name: Deploy to Paperspace
         id: deploy
         env:
           PAPERSPACE_API_KEY: ${{ secrets.PAPERSPACE_API_KEY }}
+          CONTAINER_SHA: ${{ steps.set-container-sha.outputs.CONTAINER_SHA }}
         with:
           projectId: pioiimjvdsx
-          image: ghcr.io/gradient-ai/serge:latest@${{ steps.set-container-sha.outputs.CONTAINER_SHA }}
+          image: ghcr.io/gradient-ai/serge:latest@${{ env.CONTAINER_SHA }}
