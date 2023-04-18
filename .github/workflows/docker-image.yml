@@ -33,7 +33,7 @@ jobs:
         uses: docker/metadata-action@v4
         with:
           images: |
-            ghcr.io/gradient-ai/serge
+            ghcr.io/${{ github.repository }}/serge
           tags: |
             type=raw,value=latest,enable={{is_default_branch}}
             type=ref,event=branch
@@ -83,4 +83,4 @@ jobs:
           CONTAINER_SHA: ${{ steps.set-container-sha.outputs.CONTAINER_SHA }}
         with:
           projectId: pioiimjvdsx
-          image: ghcr.io/gradient-ai/serge:latest@${{ steps.build-push.outputs.digest }}
+          image: ghcr.io/${{ github.repository }}/serge:latest@${{ steps.build-push.outputs.digest }}
