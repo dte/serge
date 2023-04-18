@@ -76,4 +76,4 @@ jobs:
           PAPERSPACE_API_KEY: ${{ secrets.PAPERSPACE_API_KEY }}
         with:
           projectId: pioiimjvdsx
-          image: ghcr.io/gradient-ai/serge:latest{{steps.build-push.outputs.containerimage.digest}
+          image: ghcr.io/gradient-ai/serge:latest@${{ steps.build-push.outputs.containerimage.digest }}
