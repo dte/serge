@@ -58,6 +58,7 @@ jobs:
 
       - name: Build and Publish Docker Image
         uses: docker/build-push-action@v4
+        id: build-push
         with:
           context: .
           push: ${{ github.event_name != 'pull_request' }}
@@ -75,4 +76,4 @@ jobs:
           PAPERSPACE_API_KEY: ${{ secrets.PAPERSPACE_API_KEY }}
         with:
           projectId: pioiimjvdsx
-          image: ghcr.io/gradient-ai/serge:latest
+          image: ghcr.io/gradient-ai/serge:latest{{steps.build-push.outputs.containerimage.digest}
