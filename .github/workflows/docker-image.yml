@@ -33,7 +33,7 @@ jobs:
         uses: docker/metadata-action@v4
         with:
           images: |
-            ghcr.io/dte/serge
+            ghcr.io/gradient-ai/serge
           tags: |
             type=raw,value=latest,enable={{is_default_branch}}
             type=ref,event=branch
@@ -75,4 +75,4 @@ jobs:
           PAPERSPACE_API_KEY: ${{ secrets.PAPERSPACE_API_KEY }}
         with:
           projectId: pioiimjvdsx
-          image: ghcr.io/dte/serge:latest
+          image: ghcr.io/gradient-ai/serge:latest
