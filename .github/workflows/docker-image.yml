@@ -83,4 +83,4 @@ jobs:
           CONTAINER_SHA: ${{ steps.set-container-sha.outputs.CONTAINER_SHA }}
         with:
           projectId: pioiimjvdsx
-          image: ghcr.io/gradient-ai/serge:latest@${{ env.CONTAINER_SHA }}
+          image: ghcr.io/gradient-ai/serge:latest@${{ steps.build-push.outputs.digest }}
